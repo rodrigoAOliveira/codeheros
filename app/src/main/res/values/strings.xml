@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Code Heros</string>
+    <string name="apikey">c6d10e5c9066af9265c503e78440d613</string>
+    <string name="hash">7b6fe2833f21613b2c7b06d5e8ddb725</string>
+    <string name="search_marvel">Busca Marvel</string>
+    <string name="name_character">Nome do personagem</string>
+    <string name="name">Nome</string>
+</resources>
