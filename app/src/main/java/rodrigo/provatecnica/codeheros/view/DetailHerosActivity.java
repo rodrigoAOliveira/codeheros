@@ -3,6 +3,7 @@ package rodrigo.provatecnica.codeheros.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
@@ -52,9 +53,28 @@ public class DetailHerosActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            //additional code
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     protected void onResume() {
         viewEvents();
@@ -63,12 +83,15 @@ public class DetailHerosActivity extends AppCompatActivity {
                 item -> {
                     switch (item.getItemId()) {
                         case R.id.nav_event:
-
+                            getSupportFragmentManager().popBackStack();
                             viewEvents();
+
                             break;
 
                         case R.id.nav_serie:
+                            getSupportFragmentManager().popBackStack();
                             viewsSerie();
+
                             break;
                     }
                     return true;
